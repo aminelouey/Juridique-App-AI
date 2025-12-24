@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "crime": "Vol simple",
+    "article": "Article 350",
+    "keywords": ["vol", "voler", "dérober", "larcin", "chapardage", "subtiliser"],
+    "categorie": "Atteintes aux biens",
+    "penalty": {
+      "prison": "1 à 5 ans d'emprisonnement",
+      "amende": "100 000 à 500 000 DA"
+    },
+    "description": "Quiconque soustrait frauduleusement une chose qui ne lui appartient pas est coupable de vol."
+  },
+  {
+    "id": 2,
+    "crime": "Vol qualifié (avec violence)",
+    "article": "Article 353",
+    "keywords": ["vol", "violence", "agression", "braquage", "vol armé", "hold-up"],
+    "categorie": "Atteintes aux biens",
+    "penalty": {
+      "prison": "5 à 10 ans de réclusion",
+      "amende": "500 000 à 1 000 000 DA"
+    },
+    "description": "Le vol commis avec violence ou menace est puni plus sévèrement."
+  },
+  {
+    "id": 3,
+    "crime": "Meurtre",
+    "article": "Article 254",
+    "keywords": ["meurtre", "tuer", "homicide", "assassinat", "mort", "crime de sang"],
+    "categorie": "Atteintes aux personnes",
+    "penalty": {
+      "prison": "Réclusion à perpétuité",
+      "amende": "N/A"
+    },
+    "description": "L'homicide commis volontairement est qualifié de meurtre."
+  },
+  {
+    "id": 4,
+    "crime": "Faux témoignage",
+    "article": "Article 232",
+    "keywords": ["faux témoignage", "mentir", "parjure", "témoigner", "fausse déclaration"],
+    "categorie": "Atteintes à la justice",
+    "penalty": {
+      "prison": "2 à 5 ans d'emprisonnement",
+      "amende": "100 000 à 300 000 DA"
+    },
+    "description": "Toute personne qui, sous serment, fait un faux témoignage en matière criminelle ou correctionnelle."
+  },
+  {
+    "id": 5,
+    "crime": "Escroquerie",
+    "article": "Article 372",
+    "keywords": ["escroquerie", "arnaque", "fraude", "tromperie", "abus de confiance"],
+    "categorie": "Atteintes aux biens",
+    "penalty": {
+      "prison": "1 à 5 ans d'emprisonnement",
+      "amende": "100 000 à 500 000 DA"
+    },
+    "description": "Quiconque, par des manœuvres frauduleuses, se fait remettre des fonds ou valeurs."
+  },
+  {
+    "id": 6,
+    "crime": "Coups et blessures volontaires",
+    "article": "Article 264",
+    "keywords": ["coups", "blessures", "violence", "frapper", "agression physique", "bagarre"],
+    "categorie": "Atteintes aux personnes",
+    "penalty": {
+      "prison": "2 mois à 5 ans d'emprisonnement",
+      "amende": "50 000 à 300 000 DA"
+    },
+    "description": "Toute personne qui volontairement porte des coups ou fait des blessures à autrui."
+  },
+  {
+    "id": 7,
+    "crime": "Diffamation",
+    "article": "Article 296",
+    "keywords": ["diffamation", "calomnie", "insulte", "atteinte à l'honneur", "réputation"],
+    "categorie": "Atteintes à l'honneur",
+    "penalty": {
+      "prison": "2 mois à 6 mois d'emprisonnement",
+      "amende": "25 000 à 100 000 DA"
+    },
+    "description": "Toute allégation ou imputation d'un fait qui porte atteinte à l'honneur d'une personne."
+  },
+  {
+    "id": 8,
+    "crime": "Corruption",
+    "article": "Article 126",
+    "keywords": ["corruption", "pot-de-vin", "bakchich", "corrompu", "fonctionnaire"],
+    "categorie": "Atteintes à l'administration",
+    "penalty": {
+      "prison": "2 à 10 ans de réclusion",
+      "amende": "200 000 à 1 000 000 DA"
+    },
+    "description": "Le fait pour un fonctionnaire de solliciter ou agréer des offres, promesses ou dons."
+  },
+  {
+    "id": 9,
+    "crime": "Trafic de stupéfiants",
+    "article": "Article 12 (Loi 04-18)",
+    "keywords": ["drogue", "stupéfiants", "cannabis", "trafic", "dealer", "narcotiques"],
+    "categorie": "Infractions spéciales",
+    "penalty": {
+      "prison": "10 à 20 ans de réclusion",
+      "amende": "5 000 000 à 50 000 000 DA"
+    },
+    "description": "Toute personne qui produit, fabrique, transporte ou vend des substances stupéfiantes."
+  },
+  {
+    "id": 10,
+    "crime": "Abus de confiance",
+    "article": "Article 376",
+    "keywords": ["abus de confiance", "détournement", "appropriation", "confiance"],
+    "categorie": "Atteintes aux biens",
+    "penalty": {
+      "prison": "1 à 3 ans d'emprisonnement",
+      "amende": "100 000 à 300 000 DA"
+    },
+    "description": "Quiconque détourne ou dissipe des effets, deniers ou marchandises qui lui ont été remis à titre de dépôt."
+  }
+]
