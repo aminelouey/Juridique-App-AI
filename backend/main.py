@@ -18,8 +18,8 @@ load_dotenv()
 # Initialize FastAPI app
 app = FastAPI(
     title="Chatbot Juridique DZ API",
-    description="API de recherche juridique avec RAG (FAISS + LLM)",
-    version="2.0.0"
+    description="API de recherche juridique avec Groq LLM (version LITE)",
+    version="2.1.0-lite"
 )
 
 # CORS configuration for Flutter app
@@ -59,18 +59,18 @@ class ChatResponse(BaseModel):
 
 @app.on_event("startup")
 async def startup_event():
-    """Load data, build FAISS index, and initialize LLM on startup"""
+    """Load data and initialize LLM on startup"""
     await rag_service.initialize()
-    print("✅ RAG Service initialized with FAISS + LLM")
+    print("✅ RAG Service LITE initialized")
 
 
 @app.get("/")
 async def root():
     return {
-        "message": "🏛️ Chatbot Juridique DZ API",
+        "message": "🏛️ Chatbot Juridique DZ API (LITE)",
         "status": "online",
-        "version": "2.0.0",
-        "features": ["FAISS", "Embeddings", "LLM"]
+        "version": "2.1.0-lite",
+        "features": ["Keywords", "Groq LLM"]
     }
 
 
@@ -151,7 +151,7 @@ async def get_config():
     """Get current configuration"""
     return {
         "llm_provider": rag_service.llm_service.provider if rag_service.llm_service else "none",
-        "embedding_model": "paraphrase-multilingual-MiniLM-L12-v2",
-        "vector_db": "FAISS",
+        "search_method": "keyword-matching",
+        "version": "LITE (512MB RAM)",
         "crimes_count": len(rag_service.crimes)
     }
