@@ -1,4 +1,4 @@
-# Backend LITE - Chatbot Juridique DZ (Groq only, no heavy models)
+# Backend - Chatbot Juridique DZ (Jina AI + SQLite + Groq)
 
 # Core
 fastapi==0.115.6
@@ -7,5 +7,8 @@ python-multipart==0.0.19
 pydantic==2.10.4
 python-dotenv==1.0.1
 
-# HTTP Client for Groq API
+# HTTP Client for APIs
 aiohttp==3.11.11
+
+# SQLite async
+aiosqlite==0.19.0
