@@ -1,28 +1,21 @@
-# Chatbot Juridique DZ - Backend API
+# Backend - Chatbot Juridique DZ (LITE)
+
+Version légère optimisée pour Render Free Tier (512MB RAM).
 
 ## 🚀 Quick Start
 
-### 1. Créer un environnement virtuel
+### Local
 ```bash
-cd backend
 python -m venv venv
-venv\Scripts\activate  # Windows
-# source venv/bin/activate  # Linux/Mac
-```
-
-### 2. Installer les dépendances
-```bash
+venv\Scripts\activate
 pip install -r requirements.txt
+uvicorn main:app --reload --port 8000
 ```
 
-### 3. Lancer le serveur
-```bash
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
+### Variables d'environnement
 ```
-
-### 4. Tester l'API
-- Swagger UI: http://localhost:8000/docs
-- Health check: http://localhost:8000/health
+GROQ_API_KEY=gsk_your_key_here
+```
 
 ## 📡 Endpoints
 
@@ -30,20 +23,24 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 |--------|----------|-------------|
 | GET | `/` | Info API |
 | GET | `/health` | Health check |
-| POST | `/chat` | Chatbot RAG |
+| POST | `/chat` | Chatbot IA |
 | GET | `/crimes` | Liste infractions |
-| GET | `/crimes/{id}` | Détail infraction |
 
-## 🔧 Stack Technique
+## 🔧 Architecture
 
-- **Framework**: FastAPI
-- **Embeddings**: Sentence Transformers (multilingual)
-- **Vector DB**: FAISS
-- **Model**: `paraphrase-multilingual-MiniLM-L12-v2`
-
-## 🐳 Docker
-
-```bash
-docker build -t chatbot-juridique-backend .
-docker run -p 8000:8000 chatbot-juridique-backend
 ```
+Question utilisateur
+      ↓
+Recherche par mots-clés
+      ↓
+Contexte juridique trouvé
+      ↓
+Groq LLaMA génère réponse
+      ↓
+Réponse naturelle
+```
+
+## 🐳 Déploiement Render
+
+Le service est déployé sur :
+https://chatbot-juridique-api.onrender.com
