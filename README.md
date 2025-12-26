@@ -1,30 +1,43 @@
-# 🏛️ Chatbot Juridique Algérien
+# ⚖️ Chatbot Juridique DZ
 
-Application mobile Flutter + Backend FastAPI pour consulter le Code pénal algérien avec une IA conversationnelle.
+Application mobile Flutter + Backend FastAPI pour consulter le **Code Pénal Algérien** avec une IA conversationnelle.
+
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Groq](https://img.shields.io/badge/Groq-FF6B6B?style=for-the-badge&logo=ai&logoColor=white)
 
 ## 🎯 Fonctionnalités
 
-- 💬 **Interface chat** style WhatsApp
-- 🔍 **Recherche intelligente** par mots-clés
-- 🤖 **Réponses IA** générées par Groq LLaMA
-- 📜 **10 infractions** du Code pénal algérien
-- ⚠️ **Disclaimers juridiques** automatiques
+### 📱 Application Mobile
+- 💬 **Interface ChatGPT-like** moderne et fluide
+- 🌙 **Dark mode** style Gemini
+- ✨ **Streaming text** - réponses caractère par caractère
+- � **Sidebar** avec historique des conversations
+- ⚙️ **Page paramètres** complète
+- 🔄 **Pull-to-refresh** pour reconnecter
 
-## 📱 Screenshots
+### 🤖 Intelligence Artificielle
+- 🔍 **RAG** (Retrieval Augmented Generation)
+- 🚀 **Groq LLaMA 3.1** pour les réponses
+- 🧠 **Jina AI** pour les embeddings sémantiques
+- 📚 **147 articles** du Code Pénal Algérien
+
+## � Screenshots
 
 L'application répond à des questions comme :
 - "Quelle est la peine pour vol ?"
-- "Article 350"
-- "Sanction corruption ?"
+- "Explique-moi l'article 350"
+- "Quelles sont les sanctions pour corruption ?"
 
 ## 🛠️ Stack Technique
 
 | Composant | Technologie |
 |-----------|-------------|
-| Frontend | Flutter |
+| Frontend | Flutter (Dart) |
 | Backend | FastAPI (Python) |
-| LLM | Groq (LLaMA 3.1) |
-| Recherche | Mots-clés |
+| LLM | Groq (LLaMA 3.1 70B) |
+| Embeddings | Jina AI |
+| Database | SQLite |
 | Hébergement | Render |
 
 ## 🚀 Installation
@@ -35,16 +48,22 @@ L'application répond à des questions comme :
 cd backend
 python -m venv venv
 venv\Scripts\activate  # Windows
+# source venv/bin/activate  # Linux/Mac
 pip install -r requirements.txt
 
-# Créer .env avec ta clé Groq
+# Créer .env avec tes clés API
 echo GROQ_API_KEY=gsk_... > .env
+echo JINA_API_KEY=jina_... >> .env
 
-# Lancer
+# Initialiser la base de données
+python scripts/init_db.py
+python scripts/add_articles.py
+
+# Lancer le serveur
 uvicorn main:app --reload --port 8000
 ```
 
-### Flutter
+### Flutter (Mobile)
 
 ```bash
 flutter pub get
@@ -56,10 +75,10 @@ flutter run
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | `/` | Info API |
-| GET | `/health` | Health check |
-| POST | `/chat` | Chatbot IA |
-| GET | `/crimes` | Liste infractions |
-| GET | `/config` | Configuration |
+| GET | `/health` | Health check + status RAG |
+| POST | `/chat` | Chatbot IA avec RAG |
+| GET | `/articles` | Liste des articles |
+| GET | `/config` | Configuration LLM |
 
 ### Exemple de requête
 
@@ -69,28 +88,54 @@ curl -X POST https://chatbot-juridique-api.onrender.com/chat \
   -d '{"question": "Quelle est la peine pour vol ?"}'
 ```
 
-## 📊 Données
+## 📊 Base de Données
 
-10 infractions du Code pénal algérien :
-- Vol simple (Art. 350)
-- Vol avec violence (Art. 353)
-- Meurtre (Art. 254)
-- Faux témoignage (Art. 232)
-- Escroquerie (Art. 372)
-- Coups et blessures (Art. 264)
-- Diffamation (Art. 296)
-- Corruption (Art. 126)
-- Trafic de stupéfiants (Loi 04-18)
-- Abus de confiance (Art. 376)
+**147 articles** du Code Pénal Algérien organisés par catégories :
 
-## ⚠️ Avertissement
+| Catégorie | Nombre |
+|-----------|--------|
+| Atteintes aux personnes | ~40 |
+| Atteintes aux biens | ~35 |
+| Corruption & Abus | ~20 |
+| Stupéfiants | ~15 |
+| Crimes contre la famille | ~20 |
+| Autres | ~17 |
 
-> Cette application fournit des **informations juridiques générales** et ne constitue pas un avis juridique personnalisé. Pour toute situation spécifique, consultez un avocat.
+## 🔧 Configuration
+
+### Variables d'environnement (Backend)
+
+```env
+GROQ_API_KEY=gsk_xxxxx    # API Groq pour LLM
+JINA_API_KEY=jina_xxxxx   # API Jina pour embeddings
+```
+
+### URL Backend (Flutter)
+
+Modifier dans `lib/services/api_service.dart` :
+```dart
+static const String baseUrl = 'https://chatbot-juridique-api.onrender.com';
+// Pour local: 'http://10.0.2.2:8000' (émulateur Android)
+```
+
+## ⚠️ Avertissement Juridique
+
+> **IMPORTANT** : Cette application fournit des **informations juridiques générales** basées sur le Code Pénal Algérien.
+> 
+> ❌ Ne constitue pas un avis juridique professionnel  
+> ❌ Ne remplace pas la consultation d'un avocat  
+> ✅ À titre informatif uniquement
 
 ## 📝 Licence
 
-MIT License
+MIT License - Voir [LICENSE](LICENSE)
 
 ## 👤 Auteur
 
 **Amine Louey** - [@aminelouey](https://github.com/aminelouey)
+
+---
+
+<p align="center">
+  Made with ❤️ in Algeria 🇩🇿
+</p>

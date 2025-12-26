@@ -17,7 +17,7 @@ class ApiService {
           'question': question,
           'use_llm': true,
         }),
-      ).timeout(const Duration(seconds: 30));
+      ).timeout(const Duration(seconds: 60));
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
@@ -30,12 +30,13 @@ class ApiService {
     }
   }
 
-  /// Check if backend is healthy
+  /// Check if backend is healthy (with longer timeout for Render cold start)
   static Future<bool> checkHealth() async {
+    // Render free tier can take 30-60 seconds to wake up
     try {
       final response = await http.get(
         Uri.parse('$baseUrl/health'),
-      ).timeout(const Duration(seconds: 5));
+      ).timeout(const Duration(seconds: 60));
       
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);

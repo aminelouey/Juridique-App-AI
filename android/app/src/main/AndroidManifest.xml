@@ -1,4 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Permission Internet pour les requêtes API -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    
     <application
         android:label="chatbot_juridique_dz"
         android:name="${applicationName}"
